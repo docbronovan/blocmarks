@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the development database for Active Record and pg as prod
@@ -23,6 +22,9 @@ group :development, :test do
   gem 'spring', '1.3.6'
   gem 'factory_girl_rails', '~> 4.0'
 end
+
+gem 'raygun4ruby'
+
 # puma
 gem 'puma'
 # pagination
