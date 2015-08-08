@@ -1,9 +1,9 @@
 <h1>Topics</h1>
-<%= @topics.each do |topic| %>
+<% @topics.each do |topic| %>
      <div class="media">
      <div class="media-body">
        <h4 class="media-heading">
-         <%= link_to topic.name, topic %>
+         <%= link_to topic.title, topic %>
        </h4>
      </div>
    </div>

@@ -16,11 +16,11 @@ require 'faker'
  end
  topics = Topic.all
  
- # Create urls
+ # Create bookmarks
  30.times do
-   Url.create!(
+   Bookmark.create!(
      topic: topics.sample,
-     urlname: "http://www." + Faker::Lorem.word + ".com"
+     url: "http://www." + Faker::Lorem.word + ".com"
    )
  end
  

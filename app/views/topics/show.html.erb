@@ -1,5 +1,12 @@
-<h1><%= @topic.name %></h1>
- <div class="row">
-   <div class="col-md-8">
-     <%= render @urls %>
-   </div>
+<h1><%= @topic.title %></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <% @bookmarks.each do |bookmark| %>
+        <%= bookmark.url %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <div>
+    <%= link_to "Back", topics_path %>
+  </div>

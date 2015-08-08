@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UrlsController, type: :controller do
+RSpec.describe BookmarksController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do
