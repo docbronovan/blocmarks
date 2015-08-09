@@ -5,5 +5,5 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
 
-  post :incoming, to: 'incoming#create'
+  #post :incoming, to: 'incoming#create'
 end
