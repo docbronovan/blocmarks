@@ -25,8 +25,8 @@ class IncomingController < ApplicationController
     end
     # Now that you're sure you have a valid user and topic, build and save a new bookmark
     Bookmark.create!(
-      url: @url
-      topic_id = (Topic.find_by title: @topic).id
+      url: @url,
+      topic_id: (Topic.find_by title: @topic).id
       )
     # Assuming all went well.
     head 200
