@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @bookmarks = @topic.bookmarks
+    @count = @topic.bookmarks.count
   end
 
   def new
@@ -20,7 +21,7 @@ class TopicsController < ApplicationController
     #@topic = Topic.new(params.require(:topic).permit(:title,:user))
     @topic = current_user.topics.new(params.require(:topic).permit(:title,:user))
     
-    @topic.user_id = current_user.id
+    #@topic.user_id = current_user.id
     if @topic.save
       flash[:notice] = "Topic was saved."
       redirect_to @topic
@@ -34,10 +35,11 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
 
     if @topic.destroy
-      flash[:notice] = "Comment was removed."
+      flash[:notice] = "Topic was removed."
     else
-      flash[:notice] = "Comment couldn't be deleted. Try again"
+      flash[:notice] = "Topic couldn't be deleted. Try again"
     end
+    redirect_to topics_path
   end
 
 

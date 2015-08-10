@@ -32,9 +32,9 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
 
     if @topic.destroy
-      flash[:notice] = "Comment was removed."
+      flash[:notice] = "Bookmark was removed."
     else
-      flash[:notice] = "Comment couldn't be deleted. Try again"
+      flash[:notice] = "Bookmark couldn't be deleted. Try again"
     end
   end
 
