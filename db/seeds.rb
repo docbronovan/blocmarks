@@ -42,7 +42,8 @@ topics = Topic.all
 30.times do
  Bookmark.create!(
    topic: topics.sample,
-   url: "http://www." + Faker::Lorem.word + ".com"
+   url: "http://www." + Faker::Lorem.word + ".com",
+   user_id: users.sample.id
  )
 end
 
