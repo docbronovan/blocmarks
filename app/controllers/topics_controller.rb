@@ -17,7 +17,9 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params.require(:topic).permit(:title,:user))
+    #@topic = Topic.new(params.require(:topic).permit(:title,:user))
+    @topic = current_user.topics.new(params.require(:topic).permit(:title,:user))
+    
     @topic.user_id = current_user.id
     if @topic.save
       flash[:notice] = "Topic was saved."

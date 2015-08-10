@@ -22,11 +22,15 @@ class IncomingController < ApplicationController
 
     @topic = Topic.find_or_create_by(title: params[:subject])
 
+    #verify url looks like a url, if not skip
+
+
+
     # Now that you're sure you have a valid user and topic, build and save a new bookmark
     Bookmark.create!(
       url: @url,
       topic: @topic,
-      #user: @user
+      user: @user
       )
     # Assuming all went well.
     head 200
