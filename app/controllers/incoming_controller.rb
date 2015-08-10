@@ -17,16 +17,16 @@ class IncomingController < ApplicationController
     # Assign the url to a variable after retreiving it from params["body-plain"]
     @url = params["body-plain"]
     # Check if user is nil, if so, create and save a new user
-    @user = User.find_or_create_by(email: @user)
+    @user = User.find_or_create_by(email: params[:sender])
     # Check if the topic is nil, if so, create and save a new topic
 
-    @topic = Topic.find_or_create_by(title: @topic)
+    @topic = Topic.find_or_create_by(title: params[:subject])
 
     # Now that you're sure you have a valid user and topic, build and save a new bookmark
     Bookmark.create!(
       url: @url,
       topic: @topic,
-      user: @user
+      #user: @user
       )
     # Assuming all went well.
     head 200
