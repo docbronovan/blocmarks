@@ -4,6 +4,11 @@
   <%= @bookmark.url %>
 </div>
 
+<div class="col-md-3">
+        <%= link_to "Like", bookmarks_likes_path(@bookmark) %>
+      </div>
+    </div>
+
 <div class = "row edit-bookmark">
   <%= link_to "Edit Bookmark", edit_bookmark_path(@bookmark), class: 'btn btn-warning' %>
 </div>

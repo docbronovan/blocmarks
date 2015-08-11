@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :topics, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+
+  has_many :likes
+  has_many :liked_bookmarks, through: :likes, source: :bookmarks
 end

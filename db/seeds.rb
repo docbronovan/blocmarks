@@ -41,12 +41,14 @@ topics = Topic.all
 # Create bookmarks
 30.times do
  Bookmark.create!(
-   topic: topics.sample,
-   url: "http://www." + Faker::Lorem.word + ".com",
-   user_id: users.sample.id
+  user: users.sample,
+  user_id: users.sample.id,
+  topic: topics.sample,
+  url: "http://www." + Faker::Lorem.word + ".com"
  )
 end
 
+bookmarks = Bookmark.all
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
