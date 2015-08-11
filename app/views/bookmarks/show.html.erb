@@ -1,7 +1,13 @@
 <h2>Bookmark</h2>
 
-<%= @bookmark.url %>
-
-<div class = "back-links">
-  <div><%= link_to "Blockmarks", topics_path %></div>
+<div class = "row myurl">
+  <%= @bookmark.url %>
 </div>
+
+<div class = "row edit-bookmark">
+  <%= link_to "Edit Bookmark", edit_bookmark_path(@bookmark), class: 'btn btn-warning' %>
+</div>
+
+ <div class = "row">
+    <%= link_to "Delete Bookmark", @bookmark, method: :delete, data: {confirm: 'Are you sure you want to delete this Bookmark!?'}, class: 'btn btn-danger' %>
+  </div>

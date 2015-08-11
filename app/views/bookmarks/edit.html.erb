@@ -1,2 +1,12 @@
-<h1>Bookmarks#edit</h1>
+<h2>Edit Bookmark</h2>
+
+<div class="col-md-8">
+  <%= form_for @bookmark do |f| %>
+    <div class="form-group">
+      <%= f.label :url %>
+      <%= f.text_field :url, class: 'form-control', placeholder: "Change URL?" %>
+    </div>
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>
+</div>
 

@@ -18,7 +18,6 @@ class BookmarksController < ApplicationController
     @bookmark = @topic.bookmarks.new(params.require(:bookmark).permit(:url))
     @bookmark.user_id = current_user.id
     
-
     if @bookmark.save
       flash[:notice] = "Bookmark was saved."
       redirect_to @bookmark
@@ -31,13 +30,26 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
 
-    if @topic.destroy
+    if @bookmark.destroy
       flash[:notice] = "Bookmark was removed."
     else
       flash[:notice] = "Bookmark couldn't be deleted. Try again"
     end
+    redirect_to topics_path
   end
 
   def edit
+    @bookmark = Bookmark.find(params[:id])
+  end
+
+  def update
+    @bookmark = Bookmark.find(params[:id])
+    if @bookmark.update_attributes(params.require(:bookmark).permit(:url))
+       flash[:notice] = "URL was updated."
+       redirect_to @bookmark
+     else
+       flash[:error] = "There was an error saving the bookmark. Please try again."
+       render :edit
+     end
   end
 end
