@@ -1,21 +1,25 @@
 class BookmarksController < ApplicationController
   def index
     @bookmarks = Bookmark.all
+    authorize @bookmarks
   end
 
   def show
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     @topic_id = @bookmark.topic_id
   end
 
   def new
     @bookmark = Bookmark.new
+    authorize @bookmark
     @topic = Topic.find(params[:topic_id])
   end
 
   def create
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.new(params.require(:bookmark).permit(:url))
+    authorize @bookmark
     @bookmark.user_id = current_user.id
     
     if @bookmark.save
@@ -29,7 +33,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
-
+    authorize @bookmark
     if @bookmark.destroy
       flash[:notice] = "Bookmark was removed."
     else
@@ -40,10 +44,12 @@ class BookmarksController < ApplicationController
 
   def edit
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
   end
 
   def update
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     if @bookmark.update_attributes(params.require(:bookmark).permit(:url))
        flash[:notice] = "URL was updated."
        redirect_to @bookmark
