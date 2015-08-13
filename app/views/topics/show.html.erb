@@ -1,6 +1,6 @@
 <h2><%= @topic.title %></h2>
   <div class="row">
-    <% if @count >0 %>
+    <% if @bookmarks.any? %>
       <% @bookmarks.each do |bookmark| %>
         <div class = "col-md-3">
           <p class="bg-info"><%= link_to bookmark.url, bookmark %></p>

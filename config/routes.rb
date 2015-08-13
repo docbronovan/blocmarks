@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'likes/create'
+
+  get 'likes/destroy'
+
   devise_for :users
   resources :topics
   resources :bookmarks
@@ -7,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :show, :index] do
     resources :topics, shallow: true do
       resources :bookmarks, shallow: true do
-        resources :likes, shallow: true
+        resources :likes, only: [:create, :destroy]
       end
     end
   end

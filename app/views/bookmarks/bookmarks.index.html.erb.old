@@ -1,0 +1,15 @@
+
+<div class= "row">
+  <h2 class="liked">Liked Blocmarks</h2>
+</div>
+  <% @likes.each do |like| %>
+    <% @bookmarks.each do |bookmark| %>
+        <% if like.bookmark_id == bookmark.id %>
+        <div class = "col-md-3">
+          <p class="bg-info"><%= link_to bookmark.url, bookmark %></p>
+          <div class="row">
+            <%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
+          </div>
+          </div>
+    <% end %>      
+    <% end %>

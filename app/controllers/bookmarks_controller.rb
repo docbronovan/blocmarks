@@ -2,6 +2,8 @@ class BookmarksController < ApplicationController
   def index
     @bookmarks = Bookmark.all
     authorize @bookmarks
+    @bookmarks_topics = current_user.bookmarks.group_by(&:topic)
+    @likes = Like.all
   end
 
   def show
@@ -23,7 +25,6 @@ class BookmarksController < ApplicationController
     @bookmark.topic_id = @topic.id
     
     if @bookmark.save
-      @bookmark.users << current_user
       flash[:notice] = "Bookmark was saved."
       redirect_to @bookmark
     else

@@ -24,6 +24,19 @@ form#new_bookmark.new_bookmark {
 }
 
 .edit-bookmark {
-  padding-top: 1%;
+  padding-top: 3%;
   padding-bottom: 3%;
+}
+
+h2.liked {
+  padding-top: 3%;
+}
+
+.row.row-remove {
+  padding-bottom: 3%;
+}
+
+.col-md-3 {
+  text-align: center;
+  color: #337ab7;
 }
