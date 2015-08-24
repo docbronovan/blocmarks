@@ -8,12 +8,23 @@ h2 {
   text-align: center;
 }
 
+.row.topic {
+  text-align: center;
+  text-decoration: underline;
+}
 .back-links {
   padding-top: 5%;
 }
 
+.bg-info {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 form#new_bookmark.new_bookmark {
   padding-top: 10%;
+  text-align: center;
 }
 
 .myurl {
@@ -39,4 +50,8 @@ h2.liked {
 .col-md-3 {
   text-align: center;
   color: #337ab7;
+}
+
+.favorite {
+  padding-bottom: 2%;
 }

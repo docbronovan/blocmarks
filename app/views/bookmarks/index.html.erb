@@ -1,7 +1,7 @@
 <h2>My Blocmarks</h2>
 <div class="row">
   <% @bookmarks_topics.each do |topic, bookmarks| %>
-      <div class="row"><h4><%= link_to "\##{topic.title}", topic %></h4></div>
+      <div class="row topic"><h4 class="topic"><%= link_to "\##{topic.title}", topic %></h4></div>
       <div class = "row">
       <%  bookmarks.each do |bmark| %>
         <div class = "col-md-3">
