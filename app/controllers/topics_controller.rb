@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @bookmarks = @topic.bookmarks
-    #@count = @topic.bookmarks.count
+    
   end
 
   def new

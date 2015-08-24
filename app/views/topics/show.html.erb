@@ -4,8 +4,10 @@
       <% @bookmarks.each do |bookmark| %>
         <div class = "col-md-3">
           <p class="bg-info"><%= link_to bookmark.url, bookmark %></p>
-          <span>like</span>
+          <div class="row">
+            <%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
           </div>
+        </div>
       <% end %>
     <% else %>
       <div class = "col-md-6">
@@ -14,7 +16,7 @@
     <% end %>
   </div>
   <br>
-  <div class = "row">
+  <div class = "row pay pan7 text-center">
     <%= link_to "Delete Topic", @topic, method: :delete, data: {confirm: 'Are you sure you want to delete this topic!?'}, class: 'btn btn-danger' %>
   </div>
   <br>
