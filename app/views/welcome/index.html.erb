@@ -5,9 +5,12 @@
 <div class="row">
 <div class="col-md-12">
   <div class="jumbotron">
-   <p> Here's a thing
-      </p>
-    <br> 
+    <% if current_user %>
+      <p><%= link_to "Check out some Bookmarks", topics_path %></p>
+    <% else %>
+      <h4><%= link_to "Sign In", new_user_session_path %> or
+      <%= link_to "Sign Up", new_user_registration_path %></h4>
+    <% end %>
   </div>
 </div>
 </div>
