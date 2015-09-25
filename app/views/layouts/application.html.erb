@@ -8,8 +8,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class = "container">
-    <ul class="nav nav-tabs navbar-right">
+
+    <ul class="nav nav-tabs ">
       <% if current_user %>
         <li><%= link_to "Blockmarks", topics_path %></li>
         <li><%= link_to "My Blocmarks", bookmarks_path %></li>
@@ -51,11 +51,11 @@
     <% end %>
 
     <%= yield %>
-  </div>
 </body>
+
 <footer>
-    <div class="row navbar navbar-bottom pan7 text-center">
-      Copyright blocmarks Inc.
-    </div>
+  <div class="row navbar navbar-bottom pan7 text-center">
+    Copyright blocmarks Inc.
+  </div>
 </footer>
 </html>

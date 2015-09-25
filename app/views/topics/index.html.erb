@@ -1,26 +1,27 @@
-<h2>All Blockmarks</h2>
+<div class="container center">
+  <h2>All Blockmarks</h2>
 
   <div class = "row pay pan7 text-center">
-      <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+    <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
   </div>
-<% @topics.each do |topic| %>
-  <div class = "row">
-    <h4><%= link_to "\##{topic.title}", topic %></h4>
-  </div>
-    <div class = "row">  
-    <% @bookmarks.each do |bookmark| %>
-      <% if bookmark.topic_id == topic.id %>
-        <div class = "col-md-3">
-          <p class="bg-info"><%= link_to bookmark.url, bookmark %></p>
-          <div class="row">
-            <%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
-          </div> 
-          </div>
-      <% end %>
-    <% end %>
+  <% @topics.each do |topic| %>
+    <div class = "row">
+      <h4><%= link_to "\##{topic.title}", topic %></h4>
     </div>
-      <div class="row new-bookmark">
+    <div class = "row">  
+      <% @bookmarks.each do |bookmark| %>
+        <% if bookmark.topic_id == topic.id %>
+          <div class = "col-md-3">
+            <p class="bg-info"><%= link_to bookmark.url, bookmark %></p>
+            <div class="row">
+              <%= render partial: 'likes/like', locals: {bookmark: bookmark } %>
+            </div> 
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row pad-top pad-bottom">
       <%= link_to "New #{topic.title} Bookmark", new_topic_bookmark_path(topic), class: 'btn btn-info' %>
     </div>
-<% end %>
-
+  <% end %>
+</div>
